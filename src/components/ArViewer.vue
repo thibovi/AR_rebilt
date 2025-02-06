@@ -3,6 +3,7 @@
     <video ref="video" autoplay playsinline></video>
     
     <model-viewer 
+      ref="modelViewer"
       src="@/models/lv_bag.glb" 
       alt="A 3D bag model" 
       ar 
@@ -12,6 +13,11 @@
 
     <button @click="switchCamera" class="switch-button">
       📷 Wissel Camera
+    </button>
+
+    <!-- Knop om AR te starten -->
+    <button @click="startAR" class="ar-button">
+      🚀 Start AR
     </button>
   </div>
 </template>
@@ -56,6 +62,15 @@ export default {
       }
 
       this.startCamera();
+    },
+    // Methode om AR te starten
+    startAR() {
+      const modelViewer = this.$refs.modelViewer;
+      if (modelViewer && modelViewer.activateAR) {
+        modelViewer.activateAR();
+      } else {
+        console.error("AR is not supported or the model-viewer element is not found.");
+      }
     }
   }
 };
@@ -103,6 +118,24 @@ model-viewer {
   z-index: 2;
 }
 .switch-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.ar-button {
+  position: absolute;
+  bottom: 80px; /* Plaats de knop boven de camera-wisselknop */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+}
+.ar-button:hover {
   background: rgba(0, 0, 0, 0.9);
 }
 </style>
