@@ -3,7 +3,7 @@
     <video ref="video" autoplay playsinline></video>
     
     <model-viewer 
-      src="/models/myModel.glb" 
+      src="./public/models/lv_bag.glb" 
       alt="A 3D model" 
       ar 
       auto-rotate 
