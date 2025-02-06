@@ -4,7 +4,7 @@
     
     <model-viewer 
       ref="modelViewer"
-      src="@/models/lv_bag.glb" 
+      src="https://res.cloudinary.com/dzempjvto/image/upload/v1738863860/Products/1234/kgxklysjs4nl0fjcep4n.glb" 
       alt="A 3D bag model" 
       ar 
       auto-rotate 
